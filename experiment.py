@@ -66,7 +66,7 @@ class Experiment:
 
     numOtherEstimation = 0
     if isShare:
-      numOtherEstimation = int(numOtherEstimation/2)
+      numOtherEstimation = int(self.numTrials/2)
 
     for i in range(numOtherEstimation):
       trials[i].other_estimation = True
@@ -101,7 +101,7 @@ class Experiment:
 
       for trialData in block:
         trial = Trial(**trialData)
-        trial.showStartFixation(win, 1)
+        trial.showStartFixation(win, 2)
         trial.showPieChart(win, self.get_hit_color(trial.isGain), 3.0)
 
         if trial.share:

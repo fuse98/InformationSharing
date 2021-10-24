@@ -47,7 +47,7 @@ class Trial:
     self.other_estimation = other_estimation
 
   def showStartFixation(self, win, duration:int=1):
-    stem = visual.TextStim(win, '+')
+    stem = visual.TextStim(win, '+', height=0.3)
     stem.draw()
     win.flip()
     clock = core.Clock()

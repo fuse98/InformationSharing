@@ -1,8 +1,8 @@
 import random
+
 from psychopy import clock, visual, event
 
 from utils import read_subject, exit_exp
-
 from experiment import Experiment
 
 if __name__ == '__main__':
@@ -17,6 +17,6 @@ if __name__ == '__main__':
   win = visual.Window(color='black', fullscr=True)
   win.setMouseVisible(False)
   
-  experiment = Experiment(1, subject=efficient_data)
-  experiment.create_blocks(sandbox=True)
+  experiment = Experiment(2, subject=efficient_data)
+  experiment.create_blocks(sandbox=False)
   experiment.run(win)
