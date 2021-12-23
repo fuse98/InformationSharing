@@ -56,14 +56,13 @@ def show_block_introduction(win, block):
     hit_color = block.extraInfo['lose_color']
   
   if not block.extraInfo['isOther']:
-    believability_text = 'برای شماست نتیجه‌ای که مشاهده خواهید کرد تصمیم فرد قبلی انتخاب شما برای ۱۰ لاتاری بی تاثیر است و\n'
-    believability_text = 'انتخاب شما در ۱۰ لاتاری بی تاثیر است\nنتیجه‌‌ای که مشاهده خواهید کرد، تصمیم فرد قبلی\n برای شماست'
+    believability_text = 'در 10 لاتاری که بصورت رندوم انتخاب شده اند\n تصمیم شما برای دیدن نتیجه بی تاثیر است و\n این تصمیم را فرد دیگری از قبل برای شما گرفته است'
   else:
-    believability_text = 'لاتاری‌های پیش رو برای فرد دیگری هستند\n انتخاب شما برای اوست.'
-  believability_que = visual.TextStim(win, believability_text, pos=(0.0, -0.4), font='Arial', languageStyle='Arabic')
+    believability_text = 'در لاتاری‌های پیش رو شما بجای شخص دیگری تصمیم می‌گیرید\n که او نتیجه لاتاری‌ها را با چه احتمالی ببیند\n 10 عدد از این لاتاری‌ها بصورت رندوم انتخاب می‌شوند\n و با توجه به انتخاب شما نتیجه لاتاری ممکن است به او نشان داده شود'
+  believability_que = visual.TextStim(win, believability_text, pos=(0.0, -0.4), font='Arial', languageStyle='Arabic', height=0.07)
   believability_que.draw()
 
-  text = f'آیتمهای پیش رو از جنس {block_type} خواهند بود'
+  text = f'لاتاری‌های پیش رو از جنس {block_type}/پوچ خواهند بود'
   stim = visual.TextStim(win, text, pos=(0, 0.6), font='Arial', languageStyle='Arabic')
   color1_lable = visual.TextStim(win, 'رنگ احتمال ' + block_type, pos=(0.4, 0.2), font='Arial', languageStyle='Arabic')
   color1 = visual.Rect(win, 0.2, 0.15, pos=(0.4, 0.0), fillColor=hit_color)

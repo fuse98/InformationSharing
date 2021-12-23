@@ -114,10 +114,14 @@ class Trial:
     if determin_probability(prob):
       saw_result = True
       text = 'مشاهده نتیجه'
+      if self.share:
+        text = 'نشان دادن نتیجه به فرد دیگر'
       # color = 'green'
     else:
       saw_result = False
       text = 'عدم مشاهده نتیجه'
+      if self.share:
+        text = 'نشان ندادن نتیجه به فرد دیگر'
       # color = 'red'
     # rect = visual.Rect(win, INFOQUE_WIDTH, INFOQUE_HIEGHT, pos=INFOQUE_POS, fillColor=color)
     stim = visual.TextStim(win, text, font='Arial', languageStyle='Arabic')
@@ -147,11 +151,11 @@ class Trial:
 
   def estimationMessage(self, win):
     if self.other_estimation:
-      line1 = 'فکر میکنید پس از انتقال نتیجه به فرد مقابل\n چه احساسی داشته باشید؟'
+      line1 = 'فکر میکنید پس از انتقال نتیجه به صاحب لاتاری\n چه احساسی داشته باشید؟'
       line2 = 'احساس شما'
     else:
-      line1 = 'فکر میکنید فرد مقابل پس از فهمیدن نتیجه\n چه احساسی داشته باشد؟'
-      line2 = 'احساس فرد مقابل'
+      line1 = 'فکر میکنید صاحب لاتاری پس از فهمیدن نتیجه\n چه احساسی داشته باشد؟'
+      line2 = 'احساس صاحب لاتاری'
     labelR = 'خیلی خوب'
     labelL = 'خیلی بد'
     stim_line1 = visual.TextStim(win, line1,

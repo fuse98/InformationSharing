@@ -121,7 +121,8 @@ class Experiment:
         else:
           saw_result = trial.showInfoQue(win, subjectChoice)
           block.addData('sawResult', saw_result)
-          trial.showResult(win, 3, saw_result)
+          if not trial.share:
+            trial.showResult(win, 3, saw_result)
 
     self.saveResultsInCsv('results')
 

@@ -17,6 +17,6 @@ if __name__ == '__main__':
   win = visual.Window(color='black', fullscr=True)
   win.setMouseVisible(False)
   
-  experiment = Experiment(2, subject=efficient_data)
+  experiment = Experiment(25, subject=efficient_data)
   experiment.create_blocks(sandbox=False)
   experiment.run(win)
