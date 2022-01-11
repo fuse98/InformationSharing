@@ -8,9 +8,9 @@ FINAL_RESULT_FILENAME = 'all_results.csv'
 
 RES_PATH = './results' 
 
-os.chdir(RES_PATH)
-csv_filenames = os.listdir()
 def main():
+  os.chdir(RES_PATH)
+  csv_filenames = os.listdir()
   all_dfs = []
   for f in csv_filenames:
     if 'csv' not in f or f == FINAL_RESULT_FILENAME:

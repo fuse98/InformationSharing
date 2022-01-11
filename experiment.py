@@ -1,4 +1,5 @@
 from psychopy import data
+from datetime import datetime
 import os
 import random
 
@@ -101,21 +102,30 @@ class Experiment:
 
       for trialData in block:
         trial = Trial(**trialData)
+        block.addData('start_trial_t', datetime.now())
         trial.showStartFixation(win, 2)
+        block.addData('show_pie_chart_t', datetime.now())
         trial.showPieChart(win, self.get_hit_color(trial.isGain), 3.0)
 
         if trial.share:
-          trial.showResult(win)        
+          block.addData('show_share_latary_result_t', datetime.now())
+          trial.showResult(win)
+          block.addData('show_share_latary_result_t', datetime.now())
           estimation, slider_time = trial.askForSelfOtherEmpathyEstimation(win)
+          block.addData('made_emotion_estimation_time_t', datetime.now())
           block.addData('estimatio', estimation)
           block.addData('sliderResponseTime', slider_time)
 
+        block.addData('show_bar_chart_left_t', datetime.now())
         trial.showBarChart(win, 'left', 3.0)
+        block.addData('show_bar_chart_right_t', datetime.now())
         trial.showBarChart(win, 'right', 3.0)
+        block.addData('show_all_three_bars_t', datetime.now())
         subjectChoice, respTime = trial.showAllAskForChoice(win, self.get_hit_color(trial.isGain))
+        block.addData('sbj_choice_made_t', datetime.now())
         block.addData('sbjChoice', subjectChoice)
         block.addData('respTime', respTime)
-
+        block.addData('show_final_results_t', datetime.now())
         if subjectChoice is None:
           show_text_and_ask_for_continue(win, 'شما به موقع جواب ندادید. پاسخ شما ثبت نشد', random.randint(3, 7))
         else:
@@ -125,5 +135,3 @@ class Experiment:
             trial.showResult(win, 3, saw_result)
 
     self.saveResultsInCsv('results')
-
-
